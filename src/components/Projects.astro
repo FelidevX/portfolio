@@ -1,0 +1,80 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+// Datos de proyectos - personaliza según tus proyectos reales
+const projects = [
+  {
+    title: 'Sistema de Gestión Hídrica',
+    description: 'IT recursos hídricos en zonas rurales. Utilicé APIs para datos en tiempo real, incluyendo niveles de embalses y predicciones climáticas.',
+    year: '2025',
+    tags: ['React', 'Node.js', 'MongoDB', 'Docker'],
+    demoUrl: '#',
+    codeUrl: 'https://github.com'
+  },
+  {
+    title: 'App de Transporte Universitario',
+    description: 'Aplicación móvil para construir viajes compartidos. Incluye sistema de reservas, chat en tiempo real y calificación de conductores.',
+    year: '2024',
+    tags: ['React Native', 'Firebase', 'Maps API'],
+    demoUrl: '#',
+    codeUrl: 'https://github.com'
+  },
+  {
+    title: 'E-commerce API RESTful',
+    description: 'Implementación de autenticación JWT, sistema de pagos con Stripe, y gestión de inventario con notificaciones en tiempo real.',
+    year: '2024',
+    tags: ['Flask', 'Django REST', 'Docker'],
+    demoUrl: '#',
+    codeUrl: 'https://github.com'
+  }
+];
+---
+
+<section id="proyectos" class="py-24 px-6">
+  <div class="container mx-auto">
+    <!-- Header de la sección -->
+    <div class="text-center mb-16 space-y-4">
+      <span class="inline-flex items-center gap-2 text-blue-400 font-semibold">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+        Portafolio
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold">
+        Proyectos <span class="gradient-text">Destacados</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Una selección de trabajos académicos y personales que demuestran mis habilidades técnicas y creatividad
+      </p>
+    </div>
+
+    <!-- Grid de proyectos -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          year={project.year}
+          tags={project.tags}
+          demoUrl={project.demoUrl}
+          codeUrl={project.codeUrl}
+        />
+      ))}
+    </div>
+
+    <!-- CTA para más proyectos -->
+    <div class="mt-16 text-center">
+      <a 
+        href="https://github.com" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors group"
+      >
+        <span>Ver todos los proyectos en GitHub</span>
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

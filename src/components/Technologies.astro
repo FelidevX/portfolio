@@ -1,0 +1,41 @@
+---
+import TechIcon from './TechIcon.astro';
+
+// Puedes personalizar las tecnologías según tu stack
+const technologies = [
+  { name: 'JavaScript', icon: '🟨' },
+  { name: 'React', icon: '⚛️' },
+  { name: 'Python', icon: '🐍' },
+  { name: 'Node.js', icon: '🟢' },
+  { name: 'HTML', icon: '🔴' },
+  { name: 'CSS', icon: '🔵' },
+];
+---
+
+<section class="py-20 px-6">
+  <div class="container mx-auto">
+    <!-- Header de la sección -->
+    <div class="text-center mb-16 space-y-4">
+      <h2 class="text-4xl md:text-5xl font-bold">
+        Tecnologías <span class="gradient-text">Principales</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Stack tecnológico con el que trabajo regularmente para crear soluciones robustas y escalables
+      </p>
+    </div>
+
+    <!-- Grid de tecnologías -->
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-8 max-w-4xl mx-auto">
+      {technologies.map((tech) => (
+        <TechIcon name={tech.name} icon={tech.icon} />
+      ))}
+    </div>
+
+    <!-- Nota adicional -->
+    <div class="mt-16 text-center">
+      <p class="text-gray-500 text-sm">
+        Y muchas más tecnologías y herramientas en constante aprendizaje...
+      </p>
+    </div>
+  </div>
+</section>

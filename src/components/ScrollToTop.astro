@@ -1,0 +1,38 @@
+---
+// Botón flotante para volver al inicio
+---
+
+<button
+  id="scroll-to-top"
+  class="fixed bottom-8 right-8 z-40 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible hover:scale-110"
+  aria-label="Volver arriba"
+>
+  <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+  </svg>
+</button>
+
+<script>
+  // Mostrar/ocultar botón según scroll
+  const scrollButton = document.getElementById('scroll-to-top');
+  
+  if (scrollButton) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollButton.classList.remove('opacity-0', 'invisible');
+        scrollButton.classList.add('opacity-100', 'visible');
+      } else {
+        scrollButton.classList.add('opacity-0', 'invisible');
+        scrollButton.classList.remove('opacity-100', 'visible');
+      }
+    });
+
+    // Scroll suave al hacer click
+    scrollButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+</script>

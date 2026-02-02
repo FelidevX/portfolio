@@ -1,0 +1,82 @@
+---
+import ExperienceCard from './ExperienceCard.astro';
+
+// Datos de experiencia - puedes personalizar según tu trayectoria
+const experiences = [
+  {
+    title: 'Desarrollador Full Stack (Práctica)',
+    company: 'TechSolutions Chile',
+    period: 'Sep 2024 - Abr 2025',
+    icon: '💻',
+    description: 'Desarrollo de módulos para sistema ERP utilizando React y Node.js. Implementé nuevas funcionalidades que mejoraron la experiencia del usuario en un 30%.',
+    achievements: [
+      'Desarrollo de módulos para sistema ERP utilizando React y Node.js',
+      'Optimización de consultas SQL reduciendo tiempos de carga en un 30%',
+      'Colaboración en metodologías ágiles (Scrum) con equipos multidisciplinarios'
+    ],
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Docker']
+  },
+  {
+    title: 'Ayudante de Cátedra - Programación',
+    company: 'Universidad del Bío-Bío',
+    period: 'Mar 2021 - Dic 2023',
+    icon: '🎓',
+    description: 'Apoyo académico a estudiantes de primer año en asignaturas de algoritmos y programación.',
+    achievements: [
+      'Apoyo académico a estudiantes en algoritmos y programación',
+      'Desarrollo de material didáctico y ejercicios prácticos',
+      'Mentoría a más de 100 estudiantes durante el período'
+    ],
+    tags: ['Java', 'C++', 'Matemáticas', 'Docencia']
+  }
+];
+---
+
+<section id="experiencia" class="py-24 px-6 bg-gray-900/50">
+  <div class="container mx-auto max-w-5xl">
+    <!-- Header de la sección -->
+    <div class="text-center mb-16 space-y-4">
+      <span class="inline-flex items-center gap-2 text-blue-400 font-semibold">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Experiencia
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold">
+        Trayectoria <span class="gradient-text">Profesional</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Mi recorrido en el mundo del desarrollo y la tecnología
+      </p>
+    </div>
+
+    <!-- Timeline de experiencias -->
+    <div class="space-y-8">
+      {experiences.map((exp) => (
+        <ExperienceCard
+          title={exp.title}
+          company={exp.company}
+          period={exp.period}
+          icon={exp.icon}
+          description={exp.description}
+          achievements={exp.achievements}
+          tags={exp.tags}
+        />
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <a 
+        href="/cv.pdf" 
+        download
+        class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors group"
+      >
+        <span>Ver CV completo</span>
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
