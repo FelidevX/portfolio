@@ -1,33 +1,45 @@
 ---
 import ExperienceCard from './ExperienceCard.astro';
 
-// Datos de experiencia - puedes personalizar según tu trayectoria
+// Datos de experiencia - trayectoria profesional real
 const experiences = [
   {
-    title: 'Desarrollador Full Stack (Práctica)',
-    company: 'TechSolutions Chile',
-    period: 'Sep 2024 - Abr 2025',
-    icon: '💻',
-    description: 'Desarrollo de módulos para sistema ERP utilizando React y Node.js. Implementé nuevas funcionalidades que mejoraron la experiencia del usuario en un 30%.',
+    title: 'Lead Backend Developer / Full Stack Engineer',
+    company: 'Proyecto FLUXORA (Tesis Académica)',
+    period: '2025 - 2026',
+    icon: '🚀',
+    description: 'Liderando el desarrollo backend de una plataforma SaaS para gestión empresarial, con enfoque en arquitectura escalable y seguridad.',
     achievements: [
-      'Desarrollo de módulos para sistema ERP utilizando React y Node.js',
-      'Optimización de consultas SQL reduciendo tiempos de carga en un 30%',
-      'Colaboración en metodologías ágiles (Scrum) con equipos multidisciplinarios'
+      'Arquitectura y desarrollo de plataforma SaaS con Java y Spring Boot',
+      'Diseño de API RESTful segura y optimizada para manejo de datos críticos',
+      'Implementación de soluciones full stack para gestión empresarial'
     ],
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Docker']
+    tags: ['Java', 'Spring Boot', 'API REST', 'PostgreSQL', 'SaaS']
   },
   {
-    title: 'Ayudante de Cátedra - Programación',
-    company: 'Universidad del Bío-Bío',
-    period: 'Mar 2021 - Dic 2023',
-    icon: '🎓',
-    description: 'Apoyo académico a estudiantes de primer año en asignaturas de algoritmos y programación.',
+    title: 'Desarrollador Front-end Trainee',
+    company: 'SERMALUC (Práctica Profesional)',
+    period: 'Ene 2025 - Mar 2025',
+    icon: '💻',
+    description: 'Desarrollo de componentes front-end en entorno profesional, trabajando con React y metodologías ágiles.',
     achievements: [
-      'Apoyo académico a estudiantes en algoritmos y programación',
-      'Desarrollo de material didáctico y ejercicios prácticos',
-      'Mentoría a más de 100 estudiantes durante el período'
+      'Desarrollo de componentes reutilizables en React para interfaces modulares y escalables',
+      'Colaboración en equipo ágil para la entrega de funcionalidades en el frontend',
+      'Uso de Git para control de versiones y gestión de código'
     ],
-    tags: ['Java', 'C++', 'Matemáticas', 'Docencia']
+    tags: ['React', 'JavaScript', 'Git', 'Scrum']
+  },
+  {
+    title: 'Soporte TI e Infraestructura',
+    company: 'I. Municipalidad de Coihueco (Práctica Profesional)',
+    period: 'Feb 2024',
+    icon: '🔧',
+    description: 'Soporte técnico y mantenimiento de infraestructura tecnológica municipal.',
+    achievements: [
+      'Resolución de incidencias técnicas de hardware y software para optimizar la operatividad de los funcionarios',
+      'Mantenimiento preventivo y correctivo de equipos computacionales y redes'
+    ],
+    tags: ['Soporte TI', 'Hardware', 'Redes', 'Mantenimiento']
   }
 ];
 ---
@@ -51,7 +63,10 @@ const experiences = [
     </div>
 
     <!-- Timeline de experiencias -->
-    <div class="space-y-8">
+    <div class="relative space-y-8">
+      <!-- Línea vertical continua -->
+      <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 hidden md:block"></div>
+      
       {experiences.map((exp) => (
         <ExperienceCard
           title={exp.title}
