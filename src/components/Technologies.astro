@@ -1,14 +1,14 @@
 ---
 import TechIcon from './TechIcon.astro';
 
-// Puedes personalizar las tecnologías según tu stack
+// Tecnologías con sus respectivas imágenes
 const technologies = [
-  { name: 'JavaScript', icon: '🟨' },
-  { name: 'React', icon: '⚛️' },
-  { name: 'Python', icon: '🐍' },
-  { name: 'Node.js', icon: '🟢' },
-  { name: 'HTML', icon: '🔴' },
-  { name: 'CSS', icon: '🔵' },
+  { name: 'JavaScript', image: '/images/tecnologias/javascript.png' },
+  { name: 'TypeScript', image: '/images/tecnologias/Typescript.png' },
+  { name: 'Java', image: '/images/tecnologias/Java.png' },
+  { name: 'Spring', image: '/images/tecnologias/spring.png' },
+  { name: 'PostgreSQL', image: '/images/tecnologias/Postgresql.png' },
+  { name: 'MySQL', image: '/images/tecnologias/mysql.png' },
 ];
 ---
 
@@ -27,7 +27,7 @@ const technologies = [
     <!-- Grid de tecnologías -->
     <div class="grid grid-cols-3 md:grid-cols-6 gap-8 max-w-4xl mx-auto">
       {technologies.map((tech) => (
-        <TechIcon name={tech.name} icon={tech.icon} />
+        <TechIcon name={tech.name} image={tech.image} />
       ))}
     </div>
 

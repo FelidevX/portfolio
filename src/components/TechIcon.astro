@@ -2,15 +2,15 @@
 // Componente reutilizable para ícono de tecnología
 interface Props {
   name: string;
-  icon: string;
+  image: string;
 }
 
-const { name, icon } = Astro.props;
+const { name, image } = Astro.props;
 ---
 
 <div class="flex flex-col items-center gap-3 group">
-  <div class="w-20 h-20 bg-gray-800 rounded-xl flex items-center justify-center group-hover:bg-gray-700 group-hover:scale-110 transition-all duration-300 border border-gray-700 group-hover:border-blue-500/50">
-    <div class="text-4xl">{icon}</div>
+  <div class="w-20 h-20 bg-gray-800 rounded-xl flex items-center justify-center group-hover:bg-gray-700 group-hover:scale-110 transition-all duration-300 border border-gray-700 group-hover:border-blue-500/50 p-4">
+    <img src={image} alt={name} class="w-full h-full object-contain" />
   </div>
   <span class="text-sm text-gray-400 group-hover:text-white transition-colors">{name}</span>
 </div>
