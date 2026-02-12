@@ -4,27 +4,30 @@ import ProjectCard from './ProjectCard.astro';
 // Datos de proyectos - personaliza según tus proyectos reales
 const projects = [
   {
-    title: 'Sistema de Gestión Hídrica',
-    description: 'IT recursos hídricos en zonas rurales. Utilicé APIs para datos en tiempo real, incluyendo niveles de embalses y predicciones climáticas.',
+    title: 'Fluxora',
+    image: '/images/projects/fluxora.jpg',
+    description: 'Sistema de gestión empresarial diseñado para optimizar la distribución, ventas e inventario',
     year: '2025',
-    tags: ['React', 'Node.js', 'MongoDB', 'Docker'],
-    demoUrl: '#',
+    tags: ['Next.js', 'Spring Boot', 'PostgreSQL', 'Docker', 'Microservicios'],
+    demoUrl: 'https://drive.google.com/file/d/1mV5nPZyMFXNHvdIU-ldz8fNEi_SSoGAt/view?usp=drive_link',
+    codeUrl: 'https://github.com/FelidevX/Fluxora'
+  },
+  {
+    title: 'Sitio web de Panadería Oriente',
+    image: '/images/projects/panaderia.png',
+    description: 'Sitio web para una panadería local, incluyendo información sobre productos, ubicación y contacto.',
+    year: '2024',
+    tags: ['Next.js', 'Node.js', 'Maps API'],
+    demoUrl: 'https://panaderiaoriente.cl/',
     codeUrl: 'https://github.com'
   },
   {
-    title: 'App de Transporte Universitario',
-    description: 'Aplicación móvil para construir viajes compartidos. Incluye sistema de reservas, chat en tiempo real y calificación de conductores.',
+    title: 'Sitio web de Isoterm',
+    image: '/images/projects/isoterm.png',
+    description: 'Sitio web para una empresa de venta y mantención de aires acondicionados, con catálogo de productos y formulario de contacto.',
     year: '2024',
-    tags: ['React Native', 'Firebase', 'Maps API'],
-    demoUrl: '#',
-    codeUrl: 'https://github.com'
-  },
-  {
-    title: 'E-commerce API RESTful',
-    description: 'Implementación de autenticación JWT, sistema de pagos con Stripe, y gestión de inventario con notificaciones en tiempo real.',
-    year: '2024',
-    tags: ['Flask', 'Django REST', 'Docker'],
-    demoUrl: '#',
+    tags: ['Next.js', 'Node.js'],
+    demoUrl: 'https://isoterm.cl/',
     codeUrl: 'https://github.com'
   }
 ];
@@ -52,6 +55,7 @@ const projects = [
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
       {projects.map((project) => (
         <ProjectCard
+          image={project.image}
           title={project.title}
           description={project.description}
           year={project.year}
