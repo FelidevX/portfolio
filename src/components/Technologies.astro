@@ -1,10 +1,12 @@
 ---
 import TechIcon from './TechIcon.astro';
 
-// Tecnologías con sus respectivas imágenes
 const technologies = [
   { name: 'JavaScript', image: '/images/tecnologias/javascript.png' },
   { name: 'TypeScript', image: '/images/tecnologias/Typescript.png' },
+  { name: 'React', image: '/images/tecnologias/react.svg' },
+  { name: 'Next.js', image: '/images/tecnologias/nextjs.svg' },
+  { name: 'Astro', image: '/images/tecnologias/astro.svg' },
   { name: 'Java', image: '/images/tecnologias/Java.png' },
   { name: 'Spring', image: '/images/tecnologias/spring.png' },
   { name: 'PostgreSQL', image: '/images/tecnologias/Postgresql.png' },
@@ -24,11 +26,25 @@ const technologies = [
       </p>
     </div>
 
-    <!-- Grid de tecnologías -->
-    <div class="grid grid-cols-3 md:grid-cols-6 gap-8 max-w-4xl mx-auto">
-      {technologies.map((tech) => (
-        <TechIcon name={tech.name} image={tech.image} />
-      ))}
+    <!-- Carrusel infinito -->
+    <div class="carousel-container relative overflow-hidden">
+      <!-- Fade izquierdo -->
+      <div class="pointer-events-none absolute left-0 top-0 h-full w-24 z-10"
+           style="background: linear-gradient(to right, var(--bg-fade, #0a0a0f), transparent);"></div>
+      <!-- Fade derecho -->
+      <div class="pointer-events-none absolute right-0 top-0 h-full w-24 z-10"
+           style="background: linear-gradient(to left, var(--bg-fade, #0a0a0f), transparent);"></div>
+
+      <div class="carousel-track flex gap-12 w-max py-4">
+        <!-- Primera copia -->
+        {technologies.map((tech) => (
+          <TechIcon name={tech.name} image={tech.image} />
+        ))}
+        <!-- Segunda copia para el loop continuo -->
+        {technologies.map((tech) => (
+          <TechIcon name={tech.name} image={tech.image} />
+        ))}
+      </div>
     </div>
 
     <!-- Nota adicional -->
@@ -39,3 +55,22 @@ const technologies = [
     </div>
   </div>
 </section>
+
+<style>
+  .carousel-track {
+    animation: scroll-left 28s linear infinite;
+  }
+
+  .carousel-container:hover .carousel-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
