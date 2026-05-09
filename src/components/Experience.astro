@@ -1,5 +1,6 @@
 ---
 import ExperienceCard from './ExperienceCard.astro';
+import FadeIn from './react/FadeIn';
 
 // Datos de experiencia - trayectoria profesional real
 const experiences = [
@@ -48,51 +49,58 @@ const experiences = [
 <section id="experiencia" class="py-24 px-6 bg-gray-900/50">
   <div class="container mx-auto max-w-5xl">
     <!-- Header de la sección -->
-    <div class="text-center mb-16 space-y-4">
-      <span class="inline-flex items-center gap-2 text-blue-400 font-semibold">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-        Experiencia
-      </span>
-      <h2 class="text-4xl md:text-5xl font-bold">
-        Trayectoria <span class="gradient-text">Profesional</span>
-      </h2>
-      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-        Mi recorrido en el mundo del desarrollo y la tecnología
-      </p>
-    </div>
+    <FadeIn client:visible direction="up" delay={0.1}>
+      <div class="text-center mb-16 space-y-4">
+        <span class="inline-flex items-center gap-2 text-blue-400 font-semibold">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Experiencia
+        </span>
+        <h2 class="text-4xl md:text-5xl font-bold">
+          Trayectoria <span class="gradient-text">Profesional</span>
+        </h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+          Mi recorrido en el mundo del desarrollo y la tecnología
+        </p>
+      </div>
+    </FadeIn>
 
     <!-- Timeline de experiencias -->
     <div class="relative space-y-8">
       <!-- Línea vertical continua -->
       <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 hidden md:block"></div>
       
-      {experiences.map((exp) => (
-        <ExperienceCard
-          title={exp.title}
-          company={exp.company}
-          period={exp.period}
-          icon={exp.icon}
-          description={exp.description}
-          achievements={exp.achievements}
-          tags={exp.tags}
-        />
+      {experiences.map((exp, index) => (
+        <FadeIn client:visible direction="up" delay={0.2 + (index * 0.1)}>
+          <ExperienceCard
+            title={exp.title}
+            company={exp.company}
+            period={exp.period}
+            icon={exp.icon}
+            description={exp.description}
+            achievements={exp.achievements}
+            tags={exp.tags}
+          />
+        </FadeIn>
       ))}
     </div>
 
     <!-- CTA -->
-    <div class="mt-12 text-center">
-      <a 
-        href="/cv.pdf" 
-        download
-        class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors group"
-      >
-        <span>Ver CV completo</span>
-        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
-    </div>
+    <FadeIn client:visible direction="up" delay={0.5}>
+      <div class="mt-12 text-center">
+        <a 
+          href="/cv.pdf" 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors group"
+        >
+          <span>Ver CV completo</span>
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </FadeIn>
   </div>
 </section>

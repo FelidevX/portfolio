@@ -1,4 +1,6 @@
 ---
+import FadeIn from './react/FadeIn';
+
 // Sección de contacto y footer
 const currentYear = new Date().getFullYear();
 
@@ -25,81 +27,88 @@ const socialLinks = [
   <div class="container mx-auto max-w-5xl">
     <!-- Contenido de contacto -->
     <div class="text-center space-y-8 mb-16">
-      <div class="space-y-4">
-        <h2 class="text-4xl md:text-5xl font-bold">
-          ¿Listo para <span class="gradient-text">colaborar?</span>
-        </h2>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-          Actualmente estoy buscando oportunidades para un equipo o en proyecto en mente o una vacante, 
-          ¡hablemos!
-        </p>
-      </div>
+      <FadeIn client:visible direction="up" delay={0.1}>
+        <div class="space-y-4">
+          <h2 class="text-4xl md:text-5xl font-bold">
+            ¿Listo para <span class="gradient-text">colaborar?</span>
+          </h2>
+          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            Actualmente estoy buscando oportunidades para un equipo o en proyecto en mente o una vacante, 
+            ¡hablemos!
+          </p>
+        </div>
+      </FadeIn>
 
       <!-- Botones de contacto -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a 
-          href="mailto:felipe2002ft@gmail.com"
-          class="group relative inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          Enviar Correo
-        </a>
+      <FadeIn client:visible direction="up" delay={0.2}>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a 
+            href="mailto:felipe2002ft@gmail.com"
+            class="group relative inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Enviar Correo
+          </a>
 
-        <a 
-          href="/cv.pdf"
-          download
-          class="group inline-flex items-center gap-3 bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 border border-gray-700 hover:border-blue-500/50"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-          </svg>
-          Copiar Email
-        </a>
-      </div>
+          <button 
+            id="copy-email-btn"
+            class="group inline-flex items-center gap-3 bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 border border-gray-700 hover:border-blue-500/50"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+            </svg>
+            Copiar Email
+          </button>
+        </div>
+      </FadeIn>
 
       <!-- Redes sociales -->
-      <div class="pt-8">
-        <p class="text-gray-500 text-sm mb-4">O encuéntrame en:</p>
-        <div class="flex justify-center gap-6">
-          {socialLinks.map((social) => (
-            <a
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group"
-              aria-label={social.name}
-            >
-              <div class="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25">
-                <svg class="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                  <path d={social.icon} />
-                </svg>
-              </div>
-            </a>
-          ))}
+      <FadeIn client:visible direction="up" delay={0.4}>
+        <div class="pt-8">
+          <p class="text-gray-500 text-sm mb-4">O encuéntrame en:</p>
+          <div class="flex justify-center gap-6">
+            {socialLinks.map((social) => (
+              <a
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group"
+                aria-label={social.name}
+              >
+                <div class="w-12 h-12 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25">
+                  <svg class="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                    <path d={social.icon} />
+                  </svg>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      </FadeIn>
     </div>
 
     <!-- Divisor -->
-    <div class="border-t border-gray-800 my-12"></div>
-
-    <!-- Footer -->
-    <div class="text-center space-y-4 text-gray-500 text-sm">
-      <p>
-        © {currentYear} Ingeniero Informático. Todos los derechos reservados.
-      </p>
-      <p>
-        Hecho con 💙 usando <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Astro</a> y <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Tailwind CSS</a>
-      </p>
-    </div>
+    <FadeIn client:visible direction="up" delay={0.6}>
+      <div class="border-t border-gray-800 my-12"></div>
+      
+      <!-- Footer -->
+      <div class="text-center space-y-4 text-gray-500 text-sm">
+        <p>
+          © {currentYear} Ingeniero Informático. Todos los derechos reservados.
+        </p>
+        <p>
+          Hecho con 💙 usando <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Astro</a> y <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Tailwind CSS</a>
+        </p>
+      </div>
+    </FadeIn>
   </div>
 </section>
 
 <script>
   // Script para copiar email al portapapeles
-  const copyEmailButton = document.querySelector('a[href="/cv.pdf"]');
+  const copyEmailButton = document.getElementById('copy-email-btn');
   
   if (copyEmailButton) {
     copyEmailButton.addEventListener('click', async (e) => {

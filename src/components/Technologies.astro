@@ -1,5 +1,6 @@
 ---
 import TechIcon from './TechIcon.astro';
+import FadeIn from './react/FadeIn';
 
 const technologies = [
   { name: 'JavaScript', image: '/images/tecnologias/javascript.png' },
@@ -17,42 +18,48 @@ const technologies = [
 <section class="py-20 px-6">
   <div class="container mx-auto">
     <!-- Header de la sección -->
-    <div class="text-center mb-16 space-y-4">
-      <h2 class="text-4xl md:text-5xl font-bold">
-        Tecnologías <span class="gradient-text">Principales</span>
-      </h2>
-      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-        Stack tecnológico con el que trabajo regularmente para crear soluciones robustas y escalables
-      </p>
-    </div>
+    <FadeIn client:visible direction="up" delay={0.1}>
+      <div class="text-center mb-16 space-y-4">
+        <h2 class="text-4xl md:text-5xl font-bold">
+          Tecnologías <span class="gradient-text">Principales</span>
+        </h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+          Stack tecnológico con el que trabajo regularmente para crear soluciones robustas y escalables
+        </p>
+      </div>
+    </FadeIn>
 
     <!-- Carrusel infinito -->
-    <div class="carousel-container relative overflow-hidden">
-      <!-- Fade izquierdo -->
-      <div class="pointer-events-none absolute left-0 top-0 h-full w-24 z-10"
-           style="background: linear-gradient(to right, var(--bg-fade, #0a0a0f), transparent);"></div>
-      <!-- Fade derecho -->
-      <div class="pointer-events-none absolute right-0 top-0 h-full w-24 z-10"
-           style="background: linear-gradient(to left, var(--bg-fade, #0a0a0f), transparent);"></div>
+    <FadeIn client:visible direction="up" delay={0.3}>
+      <div class="carousel-container relative overflow-hidden">
+        <!-- Fade izquierdo -->
+        <div class="pointer-events-none absolute left-0 top-0 h-full w-24 z-10"
+             style="background: linear-gradient(to right, var(--bg-fade, #0a0a0f), transparent);"></div>
+        <!-- Fade derecho -->
+        <div class="pointer-events-none absolute right-0 top-0 h-full w-24 z-10"
+             style="background: linear-gradient(to left, var(--bg-fade, #0a0a0f), transparent);"></div>
 
-      <div class="carousel-track flex gap-12 w-max py-4">
-        <!-- Primera copia -->
-        {technologies.map((tech) => (
-          <TechIcon name={tech.name} image={tech.image} />
-        ))}
-        <!-- Segunda copia para el loop continuo -->
-        {technologies.map((tech) => (
-          <TechIcon name={tech.name} image={tech.image} />
-        ))}
+        <div class="carousel-track flex gap-12 w-max py-4">
+          <!-- Primera copia -->
+          {technologies.map((tech) => (
+            <TechIcon name={tech.name} image={tech.image} />
+          ))}
+          <!-- Segunda copia para el loop continuo -->
+          {technologies.map((tech) => (
+            <TechIcon name={tech.name} image={tech.image} />
+          ))}
+        </div>
       </div>
-    </div>
+    </FadeIn>
 
     <!-- Nota adicional -->
-    <div class="mt-16 text-center">
-      <p class="text-gray-500 text-sm">
-        Y muchas más tecnologías y herramientas en constante aprendizaje...
-      </p>
-    </div>
+    <FadeIn client:visible direction="up" delay={0.4}>
+      <div class="mt-16 text-center">
+        <p class="text-gray-500 text-sm">
+          Y muchas más tecnologías y herramientas en constante aprendizaje...
+        </p>
+      </div>
+    </FadeIn>
   </div>
 </section>
 
