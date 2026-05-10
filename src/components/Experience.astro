@@ -67,22 +67,24 @@ const experiences = [
     </FadeIn>
 
     <!-- Timeline de experiencias -->
-    <div class="relative space-y-8">
+    <div class="relative">
       <!-- Línea vertical continua -->
       <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 hidden md:block"></div>
       
       {experiences.map((exp, index) => (
-        <FadeIn client:visible direction="up" delay={0.2 + (index * 0.1)}>
-          <ExperienceCard
-            title={exp.title}
-            company={exp.company}
-            period={exp.period}
-            icon={exp.icon}
-            description={exp.description}
-            achievements={exp.achievements}
-            tags={exp.tags}
-          />
-        </FadeIn>
+        <div class="mb-4 last:mb-0">
+          <FadeIn client:visible direction="up" delay={0.2 + (index * 0.1)}>
+            <ExperienceCard
+              title={exp.title}
+              company={exp.company}
+              period={exp.period}
+              icon={exp.icon}
+              description={exp.description}
+              achievements={exp.achievements}
+              tags={exp.tags}
+            />
+          </FadeIn>
+        </div>
       ))}
     </div>
 
